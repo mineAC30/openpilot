@@ -58,7 +58,11 @@ def steer_thread():
       #actuators.brake = max(-axis_1, 0.)
       actuators.gas = 0.
       actuators.brake = 0.
+<<<<<<< HEAD
       # Soken test invalid <<<
+=======
+
+>>>>>>> Soken01
 
       pcm_cancel_cmd = joystick.testJoystick.buttons[0]
       button_1 = joystick.testJoystick.buttons[1]
