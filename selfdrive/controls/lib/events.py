@@ -524,6 +524,11 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
   },
 
   EventName.outOfSpace: {
+    ET.PERMANENT: Alert(
+      "Out of Storage",
+      "",
+      AlertStatus.normal, AlertSize.small,
+      Priority.LOWER, VisualAlert.none, AudibleAlert.none, 0., 0., .2, creation_delay=1.),
     ET.NO_ENTRY: NoEntryAlert("Out of Storage Space",
                               duration_hud_alert=0.),
   },
@@ -559,6 +564,11 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
   },
 
   EventName.overheat: {
+    ET.PERMANENT: Alert(
+      "System Overheated",
+      "",
+      AlertStatus.normal, AlertSize.small,
+      Priority.LOWER, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
     ET.SOFT_DISABLE: SoftDisableAlert("System Overheated"),
     ET.NO_ENTRY: NoEntryAlert("System Overheated"),
   },
@@ -632,8 +642,8 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
   },
 
   EventName.posenetInvalid: {
-    ET.SOFT_DISABLE: SoftDisableAlert("Vision Model Output Uncertain"),
-    ET.NO_ENTRY: NoEntryAlert("Vision Model Output Uncertain"),
+    ET.SOFT_DISABLE: SoftDisableAlert("Model Output Uncertain"),
+    ET.NO_ENTRY: NoEntryAlert("Model Output Uncertain"),
   },
 
   EventName.deviceFalling: {
@@ -691,11 +701,6 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
     ET.NO_ENTRY: NoEntryAlert("Cruise Fault: Restart the Car"),
   },
 
-  EventName.gasUnavailable: {
-    ET.IMMEDIATE_DISABLE: ImmediateDisableAlert("Gas Fault: Restart the Car"),
-    ET.NO_ENTRY: NoEntryAlert("Gas Error: Restart the Car"),
-  },
-
   EventName.reverseGear: {
     ET.PERMANENT: Alert(
       "Reverse\nGear",
@@ -719,7 +724,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, Callable[[Any, messaging.SubMaster, boo
     ET.IMMEDIATE_DISABLE: ImmediateDisableAlert("Harness Malfunction"),
     ET.PERMANENT: Alert(
       "Harness Malfunction",
-      "Please Check Hardware",
+      "Check Hardware",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOWER, VisualAlert.none, AudibleAlert.none, 0., 0., .2),
     ET.NO_ENTRY: NoEntryAlert("Harness Malfunction"),
