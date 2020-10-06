@@ -29,6 +29,8 @@ def steer_thread():
   has_relay = hw_type in [HwType.blackPanda, HwType.uno, HwType.dos]
   print("Waiting for CAN messages...")
   get_one_can(logcan)
+  # if printting is posible
+  print(logcan)
 
   CI, CP = get_car(logcan, sendcan, has_relay)
   Params().put("CarParams", CP.to_bytes())
@@ -51,13 +53,12 @@ def steer_thread():
       actuators.steer = axis_3
       actuators.steerAngle = axis_3 * 43.   # deg
       axis_1 = clip(-joystick.testJoystick.axes[1] * 1.05, -1., 1.)          # -1 to 1
-      #Soken test invalid
-      actuators.gas = max(axis_1, 0.)
-      actuators.brake = max(-axis_1, 0.)
-      # Soken test invalid
+      # Soken test invalid >>>
+      #actuators.gas = max(axis_1, 0.)
+      #actuators.brake = max(-axis_1, 0.)
       actuators.gas = 0.
       actuators.brake = 0.
-      
+      # Soken test invalid <<<
 
       pcm_cancel_cmd = joystick.testJoystick.buttons[0]
       button_1 = joystick.testJoystick.buttons[1]
