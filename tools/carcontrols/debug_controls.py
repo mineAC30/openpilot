@@ -31,11 +31,15 @@ def steer_thread():
   get_one_can(logcan)
   # if printting is posible
   #print(logcan)
-
+  print("CI/CP get_car")
   CI, CP = get_car(logcan, sendcan, has_relay)
   Params().put("CarParams", CP.to_bytes())
-
+  print("car.control.new_message")
   CC = car.CarControl.new_message()
+
+  print("-------------------------------------")
+  print("main loop running")
+  print("-------------------------------------")
 
   while True:
 
