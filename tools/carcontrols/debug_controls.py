@@ -30,7 +30,7 @@ def steer_thread():
   print("Waiting for CAN messages...")
   get_one_can(logcan)
   # if printting is posible
-  print(logcan)
+  #print(logcan)
 
   CI, CP = get_car(logcan, sendcan, has_relay)
   Params().put("CarParams", CP.to_bytes())
@@ -67,8 +67,8 @@ def steer_thread():
 
       button_1_last = button_1
 
-      print "enable", enabled, "steer", actuators.steer, "accel", actuators.gas - actuators.brake
-
+      #print "enable", enabled, "steer", actuators.steer, "accel", actuators.gas - actuators.brake
+      print ("enable>", enabled, "steer>", actuators.steer)
       hud_alert = 0
       if joystick.testJoystick.buttons[3]:
         hud_alert = "steerRequired"
