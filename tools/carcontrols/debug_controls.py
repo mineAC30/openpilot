@@ -73,7 +73,7 @@ def steer_thread():
       button_1_last = button_1
 
       #print "enable", enabled, "steer", actuators.steer, "accel", actuators.gas - actuators.brake
-      print ("\r","enable>", enabled, "steer>", actuators.steer,end='')
+      print ("\r", "enable>", enabled, "steer>", actuators.steer, end='')
       hud_alert = 0
       if joystick.testJoystick.buttons[3]:
         print("hud_alert")
