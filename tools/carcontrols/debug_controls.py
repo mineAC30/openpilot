@@ -54,7 +54,7 @@ def steer_thread():
 
     if joystick is not None:
       axis_3 = clip(-joystick.testJoystick.axes[3] * 1.05, -1., 1.)          # -1 to 1
-      actuators.steer = axis_3 * 1200
+      actuators.steer = axis_3
       actuators.steerAngle = axis_3 * 43.   # deg
       axis_1 = clip(-joystick.testJoystick.axes[1] * 1.05, -1., 1.)          # -1 to 1
       # Soken test invalid >>>
