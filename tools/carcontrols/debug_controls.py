@@ -54,10 +54,10 @@ def steer_thread():
 
     if joystick is not None:
       axis_3 = clip(-joystick.testJoystick.axes[3] * 1.05, -1., 1.)          # -1 to 1
-      actuators.steer = axis_3
-      actuators.steerAngle = axis_3 * 43.   # deg
+      actuators.steer = axis_3 * 1
+      actuators.steerAngle = axis_3 * 43.  # deg
       axis_1 = clip(-joystick.testJoystick.axes[1] * 1.05, -1., 1.)          # -1 to 1
-      # Soken test invalid >>>
+      # Soken test invalid >
       #actuators.gas = max(axis_1, 0.)
       #actuators.brake = max(-axis_1, 0.)
       actuators.gas = 0.
@@ -73,7 +73,7 @@ def steer_thread():
       button_1_last = button_1
 
       #print "enable", enabled, "steer", actuators.steer, "accel", actuators.gas - actuators.brake
-      print ("\r", "enable>", enabled, "steer>", actuators.steer, ":", axis_3 , end='')
+      print ("\r", "enable>", enabled, "steer>", actuators.steer, ":", axis_3, end='')
       hud_alert = 0
       if joystick.testJoystick.buttons[3]:
         print("hud_alert")
